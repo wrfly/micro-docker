@@ -1,4 +1,4 @@
-# micro docker
+# Micro docker
 FROM alpine:latest
 MAINTAINER wrfly mr.wrfly@gmail.com
 
@@ -6,9 +6,12 @@ MAINTAINER wrfly mr.wrfly@gmail.com
 COPY phpcaptcha /app
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# install nginx
+# Install nginx and php
 RUN apk --update add nginx php-fpm php-gd
 
+# Expose port
 EXPOSE 80
-   
+
+# Start
 ENTRYPOINT ["/app/start.sh"]
+
