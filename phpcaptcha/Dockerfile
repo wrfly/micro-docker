@@ -1,4 +1,4 @@
-# micro docker
+﻿# micro docker
 FROM alpine:latest
 MAINTAINER wrfly mr.wrfly@gmail.com
 
@@ -11,5 +11,4 @@ RUN apk --update add nginx php-fpm php-gd
 
 EXPOSE 80
    
-CMD ["nginx", "-g", "daemon off;"]
-CMD ["php-fpm"]
+CMD ["nginx", "-g", "daemon off;" ,"php-fpm"]
