@@ -11,4 +11,4 @@ RUN apk --update add nginx php-fpm php-gd
 
 EXPOSE 80
    
-CMD ["nginx", "-g", "daemon off;","php-fpm"]
+ENTRYPOINT ["/app/start.sh"]
