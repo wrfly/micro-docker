@@ -6,6 +6,9 @@ MAINTAINER wrfly mr.wrfly@gmail.com
 COPY phpcaptcha /app
 COPY nginx.conf /etc/nginx/nginx.conf
 
+WORKDIR /app
+ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 # Install nginx and php
 RUN apk --update add nginx php-fpm php-gd
 
@@ -13,5 +16,5 @@ RUN apk --update add nginx php-fpm php-gd
 EXPOSE 80
 
 # Start
-ENTRYPOINT ["/app/start.sh"]
-
+CMD ["/bin/ash", "/app/start.sh"]
+# CMD ["/app/start.sh"]
