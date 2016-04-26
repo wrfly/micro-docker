@@ -17,4 +17,3 @@ EXPOSE 80
 
 # Start
 CMD ["/bin/ash", "/app/start.sh"]
-# CMD ["/app/start.sh"]
