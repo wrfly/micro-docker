@@ -6,7 +6,7 @@ MAINTAINER wrfly mr.wrfly@gmail.com
 COPY phpcaptcha /app
 COPY nginx.conf /etc/nginx/nginx.conf
 
-WORKDIR /app
+#WORKDIR /app
 #ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # Install nginx and php
@@ -16,5 +16,6 @@ RUN ln -fs /bin/ash /bin/bash
 # Expose port
 EXPOSE 80
 
+COPY start.sh /root
 # Start
-ENTRYPOINT ["nginx", "-g", "daemon off;","php-fpm"]
+CMD /root/start.sh
