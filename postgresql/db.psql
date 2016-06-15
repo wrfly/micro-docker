@@ -1,0 +1,31 @@
+-- Converted by db_converter
+START TRANSACTION;
+SET standard_conforming_strings=off;
+SET escape_string_warning=off;
+SET CONSTRAINTS ALL DEFERRED;
+
+CREATE TABLE "users" (
+    "id" integer DEFAULT NULL,
+    "name" varchar(100) DEFAULT NULL,
+    "age" integer DEFAULT NULL,
+    "groupid" integer DEFAULT NULL,
+    "passwd" varchar(100) DEFAULT NULL
+);
+
+
+-- Post-data save --
+COMMIT;
+START TRANSACTION;
+
+-- Typecasts --
+
+-- Foreign keys --
+
+-- Sequences --
+CREATE SEQUENCE users_id_seq;
+SELECT setval('users_id_seq', max(id)) FROM users;
+ALTER TABLE "users" ALTER COLUMN "id" SET DEFAULT nextval('users_id_seq');
+
+-- Full Text keys --
+
+COMMIT;
