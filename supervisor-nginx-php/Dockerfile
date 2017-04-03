@@ -3,7 +3,7 @@ FROM alpine:latest
 MAINTAINER wrfly mr.wrfly@gmail.com
 
 # Install nginx and php
-RUN apk --update add nginx php5-fpm php5-gd php5-mysql supervisor && \
+RUN apk --update add nginx php5-fpm php5-gd php5-mysql php5-pdo_mysql php5-mysqli supervisor && \
 	rm -rf /var/cache/apk
 
 # Copy config file
