@@ -3,15 +3,17 @@ FROM alpine:latest
 MAINTAINER wrfly mr.wrfly@gmail.com
 
 # Install nginx and php
-RUN apk --update add nginx php-fpm php-gd supervisor
+RUN apk --update add nginx php5-fpm php5-gd php5-mysql supervisor && \
+	rm -rf /var/cache/apk
 
-# Copy a phpcaptcha
-COPY phpcaptcha /app
+# Copy config file
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY supervisord.conf /etc/
 
 # Expose port
 EXPOSE 80 
+
+COPY app /app
 
 # Start
 CMD ["/usr/bin/supervisord", "-n"]
